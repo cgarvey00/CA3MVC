@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CA3MVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CA3MVCContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CA3MVCContext") ?? throw new InvalidOperationException("Connection string 'CA3MVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

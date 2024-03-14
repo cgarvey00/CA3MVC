@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Zoo Animal List";
+    <title>@ViewData["Title"] - Zoo App</title>
+}
+
+<h2>The Zoo List</h2>
+
+<p>Hello This is the zoo View Template!</p>
+
+
+public async Task<IActionResult>
+    Index()
+    {
+    return View(await _context.Movie.ToListAsync());
+    }
