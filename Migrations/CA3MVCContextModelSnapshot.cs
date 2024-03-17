@@ -29,6 +29,10 @@ namespace CA3MVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContactInformation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -96,23 +100,28 @@ namespace CA3MVC.Migrations
 
                     b.Property<string>("ConservationStatus")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(222)
+                        .HasColumnType("nvarchar(222)");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
 
                     b.Property<string>("Diet")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("HabitatInformation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(225)
+                        .HasColumnType("nvarchar(225)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -120,7 +129,8 @@ namespace CA3MVC.Migrations
 
                     b.Property<string>("SpecialCareRequirements")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Species")
                         .IsRequired()

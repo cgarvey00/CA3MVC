@@ -18,6 +18,7 @@ namespace CA3MVC.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -53,12 +54,12 @@ namespace CA3MVC.Migrations
                     ZooId = table.Column<int>(type: "int", nullable: false),
                     Species = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HabitatInformation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Diet = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SpecialCareRequirements = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ConservationStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(225)", maxLength: 225, nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(225)", maxLength: 225, nullable: false),
+                    HabitatInformation = table.Column<string>(type: "nvarchar(225)", maxLength: 225, nullable: false),
+                    Diet = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    SpecialCareRequirements = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ConservationStatus = table.Column<string>(type: "nvarchar(222)", maxLength: 222, nullable: false)
                 },
                 constraints: table =>
                 {
