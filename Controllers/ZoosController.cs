@@ -20,9 +20,22 @@ namespace CA3MVC.Controllers
         }
 
         // GET: Zoos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Zoo.ToListAsync());
+            if (_context.Zoo == null)
+            {
+                return Problem("Entity set 'CA3MVC.Zoo'  is null.");
+            }
+
+            var movies = from m in _context.Zoo
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Name!.Contains(searchString));
+            }
+
+            return View(await movies.ToListAsync());
         }
 
         // GET: Zoos/Details/5
