@@ -16,7 +16,5 @@ namespace CA3MVC.Data
 
         public DbSet<CA3MVC.Models.Zoo> Zoo { get; set; } = default!;
         public DbSet<CA3MVC.Models.ZooAnimal> ZooAnimal { get; set; } = default!;
-        public DbSet<CA3MVC.Models.User> User { get; set; } = default!;
-        public DbSet<CA3MVC.Models.ZooKeeper> ZooKeeper { get; set; } = default!;
     }
 }

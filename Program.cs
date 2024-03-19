@@ -4,15 +4,12 @@ using Microsoft.Extensions.DependencyInjection;
 using CA3MVC.Data;
 using ZooWebsite.Models;
 using CA3MVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<CA3MVCContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CA3MVCContext")));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-{
-    options.SignIn.RequireConfirmedAccount = true;
-}) .AddEntityFrameworkStores<CA3MVCContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,7 +19,6 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-
     SeedData.Initialize(services);
 }
 
